@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/blog.css">
+    <title>Blog Sayfası</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li> <a href="/">Ana Sayfa</a></li>
+        </ul>
+    </nav>
+    <header>
+        <div id="circle"></div>
+        
+        <h1 class="white">Suleyman Senyer <br> <span> Personal Blog </span> </h1>
+    </header>
+    <main>
+        <section id="section-header">
+            <h2 class="dark"> All Blog </h2>
+        </section>
+
+        <section id="blogs">
+            {% for i in data%}
+            <div class="blog">
+                <div class="blog-header">
+                    <img src='../static/images{{ i.blog_image|cut:'home/static/images' }}' alt="">
+                </div>
+                <div class="blog-body">
+                    <div class="blog-details">
+                        <h4>{{ i.blog_title }}</h4>
+                        <p>{{i.blog_date}}</p>
+                    </div>
+                    <div class="blog-content">
+                        <p>{{i.blog_content.html|truncatewords_html:1|safe}}</p>
+                    </div>
+                    <div class="blog-readmore">
+                        <a class="readmore" href="/blog/{{ i.blog_title }}">Read More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </section>
+    </main>
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+    
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+    
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+    
+</body>
+</html>
+
+

@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=B612:wght@400;700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'B612', sans-serif;
+    word-break: break-all;
+}
+
+html{
+    font-size: 10px;
+}
+
+body{
+    font-size: 1.5rem;
+}
+
+img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+li a{
+    position: relative;
+    text-decoration: none;
+    color: white;
+    padding: 5px;
+}
+
+li a::before{
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    content: '';
+    display: block;
+    width: 0px;
+    height: 1px;
+    background-color: aqua;
+    transition: cubic-bezier(0.785, 0.135, 0.15, 0.86) 750ms;
+}
+
+li a:hover::before{
+    width: 100%;
+}
+
+span{
+    font-size: 14px;
+}
+
+.white{
+    color: white;
+}
+
+.dark{
+    color: #1A2238;
+}
+
+nav{
+    background-color: #1A2238;
+    padding: 10px;
+}
+
+nav ul li{
+    display: inline-block;
+    margin-left: 3px;
+}
+
+
+header{
+    position: relative;
+    height: 60vh;
+    clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+    background-color: #1A2238;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main{
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    color: black;
+    
+}
+
+section{
+    width: 70%;
+    margin: 0 auto;
+}
+
+h2{
+    animation-name: titlean;
+    animation-duration: 2s;
+}
+
+h2::after{
+    content: '';
+    margin: 5px auto;
+    display: block;
+    height: 3px;
+    background-color: #1A2238;
+    max-width: 250px;
+}
+
+#section-header{
+    text-align: center;
+    margin-bottom: 10rem;
+}
+
+
+#blogs{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    flex-direction: column;
+}
+
+
+.blog{
+    width: 600px;
+    color: #371BB1;
+}
+
+.blog-header{
+    width: 400px;
+    height: 400px;
+    background: crimson;
+    margin: 50px auto;
+    
+}
+
+
+
+#circle{
+    display: flex;
+    position: absolute;
+    width: 40rem;
+    height: 40rem;
+    background-color: #FF6A3D;
+    clip-path: circle(50% at 50% 50%);
+    bottom: 0;
+    right: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+}
+
+.pagination{
+    margin-top: 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+
+@keyframes titlean {
+    from {color:white;}
+    to {color: #1A2238;}
+  }
+
+
