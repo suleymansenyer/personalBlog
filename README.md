@@ -1,4 +1,4 @@
-# personalBlog
+# Personal Blog
 This is my first django project
 
 İf you want add a new post:
